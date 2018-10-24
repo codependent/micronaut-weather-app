@@ -1,0 +1,6 @@
+micronaut:
+  application:
+    name: micronaut-weather-app
+
+weather:
+  api-key: 0ced66be2fdc562015a8661e20c10f18
