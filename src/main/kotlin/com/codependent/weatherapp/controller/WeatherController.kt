@@ -8,14 +8,13 @@ import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import reactor.core.publisher.Flux
 import reactor.core.publisher.toFlux
-import javax.annotation.Nullable
 
 @Controller("/weather")
 class WeatherController(@Value("\${weather.api-key}") private val apiKey: String,
                         private val weatherClient: WeatherClient) {
 
-    @Get(value = "{?city,country,cityIds}", produces = [MediaType.APPLICATION_JSON])
-    fun getWeather(@Nullable city: String?, @Nullable country: String?, @Nullable cityIds: String?): Flux<Any> {
+    @Get(produces = [MediaType.APPLICATION_JSON])
+    fun getWeather(city: String?, country: String?, cityIds: String?): Flux<Any> {
         return if (city != null && country != null && cityIds == null) {
             weatherClient.getWeather(apiKey, city, country).toFlux()
         } else if (city != null && country == null && cityIds == null) {
