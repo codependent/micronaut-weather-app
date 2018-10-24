@@ -9,7 +9,7 @@ plugins {
 apply plugin:"application"
 
 version "0.1"
-group "micronaut.weather.app"
+group "com.codependent.weatherapp"
 
 repositories {
     mavenLocal()
@@ -47,7 +47,7 @@ shadowJar {
 
 run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1')
 
-mainClassName = "micronaut.weather.app.Application"
+mainClassName = "com.codependent.weatherapp.Application"
 
 test {
     useJUnitPlatform()

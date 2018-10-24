@@ -17,6 +17,6 @@ interface WeatherClient {
     @Get("/weather?id={cityId}&appid={apiKey}")
     fun getWeatherByCityId(apiKey: String, cityId: String): Mono<Any>
 
-    @Get("/weather?id={cityIds}&appid={apiKey}")
+    @Get("/group?id={cityIds}&appid={apiKey}")
     fun getWeatherByCityIds(apiKey: String, cityIds: String): Flux<Any>
 }
